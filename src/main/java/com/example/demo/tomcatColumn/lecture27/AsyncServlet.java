@@ -33,10 +33,22 @@ public class AsyncServlet extends HttpServlet {
             @Override
             public void run() {
                 try {
+                    System.out.println("begin");
+
+                    // 处理超时
+                    // 然异步Servlet允许用更长的时间来处理请求，但是也有超时限制的，默认是30秒，如果 30秒内请求还没处理完，Tomcat会触发超时机制，向浏览器返回超时错误，
+                    // 如果这个时候你的Web应用再 调用ctx.complete方法，会得到一个 IllegalStateException异常。
+                    // Thread.sleep(40000);
+
+                    // 正常处理
+                    Thread.sleep(1000);
                     ctx.getResponse().getWriter().println("Handling Async Servlet");
                 } catch (IOException e) {
-
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
+                System.out.println("end");
                 //3.异步 servlet 处理完调用异步上下文的 complete 方法
                 ctx.complete();
             }

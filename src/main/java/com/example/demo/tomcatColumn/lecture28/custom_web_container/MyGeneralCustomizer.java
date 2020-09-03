@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 /**
  * 定制Web容器方式1:
  * <p>
- * 通过通用的Web容器工厂ConfigurableServletWebServerFactory，来定制一些Web容器通用的参数
+ * 通过通用的Web容器工厂 ConfigurableServletWebServerFactory ，来定制一些Web容器通用的参数
  *
  * @author Alan Yin
  * @date 2020/7/20

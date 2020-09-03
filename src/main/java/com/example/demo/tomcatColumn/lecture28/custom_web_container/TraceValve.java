@@ -11,8 +11,8 @@ import java.io.IOException;
 /**
  * 定制Web容器方式2: 结合 MyTomcatCustomizer
  * <p>
- * 通过特定Web容器的工厂比如TomcatServletWebServerFactory来进一步定制。
- * 下面的例子里，我们给Tomcat增加一个Valve，这个Valve的功能是向请求头里添加 traceId，用于分布式追踪。
+ * 通过特定Web容器的工厂比如 TomcatServletWebServerFactory 来进一步定制。
+ * 下面的例子里，我们给Tomcat增加一个Valve，这个 Valve 的功能是向请求头里添加 traceId，用于分布式追踪。
  *
  * @author Alan Yin
  * @date 2020/7/20

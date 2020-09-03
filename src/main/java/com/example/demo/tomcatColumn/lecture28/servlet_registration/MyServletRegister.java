@@ -26,4 +26,5 @@ public class MyServletRegister implements ServletContextInitializer {
         myServlet.addMapping("/test28");
         myServlet.setInitParameter("name", "hello myServlet");
     }
+
 }

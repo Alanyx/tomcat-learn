@@ -16,7 +16,6 @@ public class MySynchronizedStack<T> {
     private static final int DEFAULT_LIMIT = -1;
 
     private int size;
-
     private final int limit;
 
     /**
@@ -25,7 +24,7 @@ public class MySynchronizedStack<T> {
     private int index;
 
     /**
-     * 对象池关键实现：此处是数组(节省内存)
+     * 对象池关键实现：此处是数组(相比于链表更节省内存)
      */
     private Object[] stack;
 
@@ -78,6 +77,18 @@ public class MySynchronizedStack<T> {
         T result = (T) stack[index];
         stack[index--] = null;
         return result;
+    }
+
+    /**
+     * 清空同步栈
+     */
+    public synchronized void clear() {
+        if (index > -1) {
+            for (int i = 0; i < index + 1; i++) {
+                stack[i] = null;
+            }
+        }
+        index = -1;
     }
 
     /**

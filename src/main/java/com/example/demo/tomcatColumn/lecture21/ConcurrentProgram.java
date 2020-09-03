@@ -13,7 +13,8 @@ import java.util.concurrent.atomic.AtomicLong;
 
 public class ConcurrentProgram {
 
-    // 1.使用细粒度锁
+    // 1.使用细粒度锁(不要在方法上直接使用 Synchronized )
+
     private final Object lock = new Object();
 
     public void test1() {
@@ -23,6 +24,7 @@ public class ConcurrentProgram {
     }
 
     // 2.使用原子类和 CAS
+
     private AtomicLong count = new AtomicLong(0);
 
     public void test2() throws InterruptedException {
@@ -42,6 +44,7 @@ public class ConcurrentProgram {
     }
 
     // 3.使用并发容器:如 CopyOnWriteArrayList 适用于读多写少的场景
+
     private List<Object> list = new CopyOnWriteArrayList<>();
 
     // 4.使用 volatile 关键字:其他线程可见
