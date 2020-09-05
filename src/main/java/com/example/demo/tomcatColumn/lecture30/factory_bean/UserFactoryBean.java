@@ -27,6 +27,6 @@ public class UserFactoryBean implements FactoryBean<UserBean> {
 
     public static void main(String[] args) {
         BeanFactory beanFactory = new ClassPathXmlApplicationContext("user.xml");
-        UserBean userBean = (UserBean) beanFactory.getBean("");
+        UserBean userBean = (UserBean) beanFactory.getBean("userFactoryBean");
     }
 }
